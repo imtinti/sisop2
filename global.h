@@ -7,6 +7,15 @@
 /*================================================================================================================================================*/
 
 
+//Enbtradas de usuário por linha de comando
+
+#define GET_SYNC_DIR "get_sync_dir"
+#define LIST_CLIENT "list_client"
+#define LIST_SERVER "list_server"
+#define UPLOAD "upload"
+#define DOWNLOAD "download"
+#define DELETE "delete"
+#define EXIT "exit"
 
 /*======================================================================*/
 /*==============================BIBLIOTECAS=============================*/
