@@ -1,0 +1,14 @@
+main() {
+
+
+	iniciarSessao();
+
+	loginUsuario();
+
+	loginServer();
+
+
+
+
+
+}
