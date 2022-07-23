@@ -2,18 +2,20 @@ public class myClient
 {
 
 	
-	protected:
+	protected: //atributos myClient
 
 		char* userSession[2];
 		char* username;
 
 
-		list arquivos[File]; //usar uma arvore trie talvez? hash?(talvez é melhor)
+		list arquivos[File]; //usar uma tabela hash)?
 
 
-	public:
+	public:			//metodos myClient
 
-		File listUserFiles(){
+
+		//retorna arquivos atrelados a um usuário (independente da sessão)
+		list listServer(void){
 
 			return this.arquivos.list();
 

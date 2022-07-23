@@ -1,3 +1,5 @@
+#include "global.h"
+
 public class myServer {
 
 	struct structClient{
