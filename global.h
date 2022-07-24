@@ -6,9 +6,21 @@
 // - declarações de funções globais, chamadas por diferentes arquivos (há funções locais que são chamadas apenas dentro dos arquivos, não estão aqui)
 /*================================================================================================================================================*/
 
+/*======================================================================*/
+/*==============================BIBLIOTECAS=============================*/
+/*======================================================================*/
 
-//Enbtradas de usuário por linha de comando
 
+#include <stdio.h>
+#include <string.h>
+
+#include <iostream>
+#include <vector>
+#include <string>
+
+
+
+//Enbtradas de usuário por linha de comando:
 #define GET_SYNC_DIR "get_sync_dir"
 #define LIST_CLIENT "list_client"
 #define LIST_SERVER "list_server"
@@ -17,13 +29,13 @@
 #define DELETE "delete"
 #define EXIT "exit"
 
-/*======================================================================*/
-/*==============================BIBLIOTECAS=============================*/
-/*======================================================================*/
 
-
-#include <stdio.h>
-#include <string.h>
+//Posições dos argumentos de entrada na main do programa, no formato:
+//usado na funcao int main()
+//./myClient <username> <server_ip_address> <port>
+#define inputUSERNAME 0
+#define inputIP 1 
+#define inputPORT 2
 
 //
 //Structs destinadas a manter salvo, no servidor, as informações(metadados) referentes aos arquivos mantidos no servidor. Para não ser necessário o servidor fazer uma consulta 

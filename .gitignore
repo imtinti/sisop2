@@ -50,3 +50,6 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+.vs/sisop2/v17/Browse.VC.opendb
+.vs/sisop2/v17/Browse.VC.db
+*.db
