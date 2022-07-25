@@ -1,5 +1,5 @@
-#include "glboal.h"
-#include "aplicaçao.cpp"
+#include "../global.h"
+#include "../aplicacao.cpp"
 
 bool qntdArgumentosOK(int nroParametrosEntrada) {
 
@@ -9,8 +9,8 @@ bool qntdArgumentosOK(int nroParametrosEntrada) {
 		return false;
 }
 
-//funcao que retorna um valor inteiro único para uma dada string. 
-// retorna um código pra cada entrada do usuário. 
+//funcao que retorna um valor inteiro ï¿½nico para uma dada string. 
+// retorna um codigo pra cada entrada do usuï¿½rio. 
 //retirado de: https://stackoverflow.com/questions/16388510/evaluate-a-string-with-a-switch-in-c
 constexpr unsigned int str2int(const char* str, int h = 0)
 {
@@ -18,7 +18,7 @@ constexpr unsigned int str2int(const char* str, int h = 0)
 }
 
 
-//testa se é um numero inteiro
+//testa se ï¿½ um numero inteiro
 bool validatePort(string argumento) {
 
 	if ((argumento.find_first_not_of("0123456789") == string::npos) = true)
@@ -121,7 +121,7 @@ public class myClient
 
 
 
-		//retorna arquivos atrelados a um usuário (independente da sessão)
+		//retorna arquivos atrelados a um usuï¿½rio (independente da sessï¿½o)
 		list listServer(void){
 
 			return this.arquivos.list();
@@ -129,49 +129,49 @@ public class myClient
 		};
 
 
-		//Um cliente deve poder estabelecer uma sessão com o servidor via linha de comando utilizando :
-	    //# ./myClient <username> <server_ip_address> <port> //cada vez que esse comando for utilizado, vai ser instanciada uma nova classe. ou seja, uma classe para cada sesssão
+		//Um cliente deve poder estabelecer uma sessï¿½o com o servidor via linha de comando utilizando :
+	    //# ./myClient <username> <server_ip_address> <port> //cada vez que esse comando for utilizado, vai ser instanciada uma nova classe. ou seja, uma classe para cada sesssï¿½o
 		bool myClient(int argc, char* argv[])
 		{
 
-			//testa se a quantidade de parâmetros de entrada é igual a 3
+			//testa se a quantidade de parï¿½metros de entrada ï¿½ igual a 3
 			if (!qntdArgumentosOK(argc))s
 			{
-				printf("Número incorreto de parâmetros\n");
+				printf("Nï¿½mero incorreto de parï¿½metros\n");
 				printf("Exemplo: ./myClient <username> <server_ip_address> <port> ");
 				return 0;
 			}
 
-			//testa se é um nome válido
+			//testa se ï¿½ um nome vï¿½lido
 			if (trataEntrada(inputUSERNAME, argv[0])
-				this.username = argv[0];//captura o primeiro argumenrto de entrada do usuário
+				this.username = argv[0];//captura o primeiro argumenrto de entrada do usuï¿½rio
 			else
 			{
-				printf("Nome de usuário inválido\n");
+				printf("Nome de usuï¿½rio invï¿½lido\n");
 					return 0;
 			}
 
-			//testa se é um IP válido
+			//testa se ï¿½ um IP vï¿½lido
 			if (trataEntrada(inputIP, argv[1]))
-				this.server_ip_address = argv[1] //captura o segundo argumento de entrada do usuário
+				this.server_ip_address = argv[1] //captura o segundo argumento de entrada do usuï¿½rio
 			else
 			{
-				printf("Ip inválido\n");
+				printf("Ip invï¿½lido\n");
 				return 0;
 			}
 
-			//testa se é uma porta válida (algum valor inteiro maior q zero
+			//testa se ï¿½ uma porta vï¿½lida (algum valor inteiro maior q zero
 			if (trataEntrada(inputPORT, arqv[2])))
-				this.port = arqv[2]; //captura o terceiro argumento de entrada do usuário
+				this.port = arqv[2]; //captura o terceiro argumento de entrada do usuï¿½rio
 			else
 			{
 
-				printf("Port inválido\n");
+				printf("Port invï¿½lido\n");
 				return 0;
 			}
 
 			
-			//Se todos os parâmetros de entrada deram certo, então invoca-se a aplicação, que ficará rodando em loop enquanto durar a sessão do usuário
+			//Se todos os parï¿½metros de entrada deram certo, entï¿½o invoca-se a aplicaï¿½ï¿½o, que ficarï¿½ rodando em loop enquanto durar a sessï¿½o do usuï¿½rio
 			
 
 		}
