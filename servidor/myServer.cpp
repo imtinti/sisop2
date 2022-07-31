@@ -1,12 +1,3 @@
-
-typedef struct packet {
-	uint16_t type; //Tipo do pacote (p.ex. DATA | CMD)
-	uint16_t seqn; //Numero de sequencia
-	uint32_t total_size; //Nemero total de fragmentos
-	uint16_t length; //Comprimento do payload
-	const char* _payload; //Dados do pacote
-} packet;
-
 // Server side C/C++ program to demonstrate Socket
 // programming
 #include <netinet/in.h>
@@ -16,6 +7,15 @@ typedef struct packet {
 #include <sys/socket.h>
 #include <unistd.h>
 #define PORT 8080
+
+
+typedef struct packet {
+	uint16_t type; //Tipo do pacote (p.ex. DATA | CMD)
+	uint16_t seqn; //Numero de sequencia
+	uint32_t total_size; //Nemero total de fragmentos
+	uint16_t length; //Comprimento do payload
+	const char* _payload; //Dados do pacote
+} packet;
 
 
 /*Etapas para criaçao do socket:
@@ -34,13 +34,22 @@ int main(int argc, char const* argv[])
 	int opt = 1;
 	int addrlen = sizeof(address);
 	char buffer[1024] = { 0 };
-	char* hello = "Hello from server";
+	char hello[] = "Hello from server";
 
 	// Creating socket file descriptor
 	if ((server_fd = socket(AF_INET, SOCK_STREAM, 0))
 		== 0) {
 		perror("socket failed");
 		exit(EXIT_FAILURE);
+	}
+	
+	
+	else{
+	
+		printf("Creating socket file descriptor\n");
+		printf("1 - SOCKET CREATION\n");
+		
+	
 	}
 
 	// Forcefully attaching socket to the port 8080
