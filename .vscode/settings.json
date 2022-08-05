@@ -54,6 +54,7 @@
         "cstring": "cpp",
         "map": "cpp",
         "regex": "cpp",
-        "list": "cpp"
+        "list": "cpp",
+        "filesystem": "cpp"
     }
 }

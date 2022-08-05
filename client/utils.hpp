@@ -1,0 +1,1 @@
+void createDirectoryIfNotExists(std::string path);
