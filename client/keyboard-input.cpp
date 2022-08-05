@@ -1,11 +1,19 @@
 #include "keyboard-input.hpp"
 
+#include <iostream>
 #include <regex>
 #include <string>
 
+#include "synchronization-service.hpp"
+
 // public
-void KeyboardInput ::parse(std::string input) {
+void KeyboardInput ::parse(std::string input,
+                           SynchronizationService* synchroService) {
+  std::smatch match;
+
   if (input == "exit") exit(EXIT_SUCCESS);
 
-  if (std::regex_match(input, std::regex("^delete (.*)"))) exit(12313);
+  if (std::regex_search(input, match, std::regex("^delete (.*)"))) {
+    synchroService->remove(match.str(1));
+  }
 };

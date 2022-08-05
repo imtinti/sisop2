@@ -39,10 +39,8 @@ int main(int argc, char *argv[]) {
       std::cout << message << std::endl;
   }*/
 
-  std::cout << "Olá " << username << std::endl;
-
   for (;;) {
-    std::cout << "Insira comando: ";
+    std::cout << username << "@cloud: ";
     std::getline(std::cin, input);
 
     KeyboardInput::parse(input, &synchroService);

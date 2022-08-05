@@ -16,8 +16,8 @@ void SynchronizationService::remove(std::string file) {
 
   if (std::filesystem::exists(path.str())) {
     std::filesystem::remove(path.str());
-    std::cout << file << " was removed";
+    std::cout << file << " was removed" << std::endl;
   } else {
-    std::cout << file << " was not found!";
+    std::cout << file << " was not found!" << std::endl;
   }
 }

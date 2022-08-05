@@ -1,3 +1,6 @@
+#ifndef __SYNCHRONIZATION_SERVICE_H__
+#define __SYNCHRONIZATION_SERVICE_H__
+
 #include <string>
 
 class SynchronizationService {
@@ -10,3 +13,5 @@ class SynchronizationService {
 
   void remove(std::string file);
 };
+
+#endif
