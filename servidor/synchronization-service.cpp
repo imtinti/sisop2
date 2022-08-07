@@ -4,6 +4,8 @@
 #include <iostream>
 #include <string>
 
+
+
 // public
 SynchronizationService::SynchronizationService(std::string username)
     : username(username) {
@@ -39,5 +41,14 @@ void SynchronizationService::removeFromFolderAndSignal(std::string file) {
 
 void SynchronizationService::remove(const char* file) {
   std::cout << "signaling '" << file << "' was removed from the cloud"
-            << std::endl;
-}
+            << std::endl; 
+  }
+
+  void SynchronizationService::listUserFiles(){
+
+      std::string path = (this->userFolder+"_"+username);
+    
+      for (const auto & entry : std::filesystem::directory_iterator(path))
+          std::cout << entry.path() << std::endl;
+
+  }

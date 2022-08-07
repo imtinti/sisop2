@@ -15,6 +15,7 @@ class SynchronizationService {
 
   void remove(const char* file);
   void removeFromFolderAndSignal(std::string file);
+  void listUserFiles();
 };
 
 #endif

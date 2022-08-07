@@ -7,7 +7,8 @@
 
 class KeyboardInput {
  public:
-  void static parse(std::string input, SynchronizationService* synchroService);
+  void static parse(std::string input, SynchronizationService* synchroService); 
+
 };
 
 #endif

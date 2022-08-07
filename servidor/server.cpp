@@ -14,7 +14,7 @@ int main(int argc, char* argv[]) {
 
   std::string input;
   std::string folder = "sync_dir";
-  std::string username = "cassio";
+  std::string username = "iuri";
 
   //std::string userFolder = folder + username; 
 
@@ -70,7 +70,7 @@ o diretório local (de onde o servidor foi chamado). e.g. download
 mySpreadsheet.xlsx
 
 
-# list_server Lista os arquivos salvos no servidor associados ao usuário.
+
 # list_client Lista os arquivos salvos no diretório “sync_dir”
 # get_sync_dir Cria o diretório “sync_dir” e inicia as atividades de sincronização
 

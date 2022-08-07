@@ -21,5 +21,10 @@ void KeyboardInput ::parse(std::string input, SynchronizationService* synchroSer
     synchroService->removeFromFolderAndSignal(match.str(1));
   }
 
+  //# list_server Lista os arquivos salvos no servidor associados ao usuário.
+  if (input == "list_server"){
 
+    synchroService->listUserFiles();
+    
+  } 
 };
