@@ -1,20 +1,24 @@
 #include <filesystem>
 #include <iostream>
 #include <string>
+#include <thread>
 
 #include "directory-watcher.hpp"
 #include "keyboard-input.hpp"
 #include "synchronization-service.hpp"
 #include "tcp-connection.hpp"
-#include "utils.hpp"
 
-int main(int argc, char *argv[]) {
+void startDirectoryWatcher(DirectoryWatcher dw) { dw.start(); }
+
+int main(int argc, char* argv[]) {
   std::string input;
   std::string folder = "sync_dir";
   std::string username = "cassio";
 
-  createDirectoryIfNotExists(folder);
-  SynchronizationService synchroService(username, folder);
+  SynchronizationService synchroService(username);
+  DirectoryWatcher directoryWatcher(folder, &synchroService);
+
+  std::thread dwThread(startDirectoryWatcher, directoryWatcher);
 
   //   DirectoryWatcher dw(SYNC_DIR_PATH);
 
@@ -45,6 +49,8 @@ int main(int argc, char *argv[]) {
 
     KeyboardInput::parse(input, &synchroService);
   }
+
+  dwThread.detach();
 
   return EXIT_SUCCESS;
 }

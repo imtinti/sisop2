@@ -3,11 +3,16 @@
 
 #include <sys/inotify.h>
 
+#include <string>
+
+#include "synchronization-service.hpp"
+
 class DirectoryWatcher {
  private:
   int fd, wd;
 
-  const char* path;
+  std::string path;
+  SynchronizationService* synchroService;
 
   uint32_t watchMask = IN_MODIFY | IN_MOVED_FROM | IN_MOVED_TO | IN_CLOSE;
 
@@ -17,7 +22,7 @@ class DirectoryWatcher {
 
  public:
   ~DirectoryWatcher();
-  DirectoryWatcher(const char* path);
+  DirectoryWatcher(std::string path, SynchronizationService* synchroService);
 
   void start();
 };

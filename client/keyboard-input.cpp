@@ -14,6 +14,6 @@ void KeyboardInput ::parse(std::string input,
   if (input == "exit") exit(EXIT_SUCCESS);
 
   if (std::regex_search(input, match, std::regex("^delete (.*)"))) {
-    synchroService->remove(match.str(1));
+    synchroService->removeFromFolderAndSignal(match.str(1));
   }
 };

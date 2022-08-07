@@ -11,6 +11,8 @@
 #include <iostream>
 #include <string>
 
+#include "synchronization-service.hpp"
+
 #define EVENT_SIZE (sizeof(struct inotify_event))
 #define BUFFER_LENGTH (1024 * (EVENT_SIZE + 16))
 
@@ -24,7 +26,7 @@ void DirectoryWatcher::inotify_init() {
 };
 
 void DirectoryWatcher::inotify_add_watch() {
-  this->wd = ::inotify_add_watch(this->fd, this->path, this->watchMask);
+  this->wd = ::inotify_add_watch(this->fd, this->path.c_str(), this->watchMask);
 
   if (this->wd < 0) {
     throw "error when adding folder watch handler";
@@ -44,7 +46,9 @@ DirectoryWatcher::~DirectoryWatcher() {
   close(this->fd);
 }
 
-DirectoryWatcher::DirectoryWatcher(const char* path) : path(path) {}
+DirectoryWatcher::DirectoryWatcher(std::string path,
+                                   SynchronizationService* synchroService)
+    : path(path), synchroService(synchroService) {}
 
 void DirectoryWatcher::start() {
   this->prepare();
@@ -59,8 +63,6 @@ void DirectoryWatcher::start() {
       throw "error reading fd";
     }
 
-    std::cout << "read: " << length / EVENT_SIZE << " events" << std::endl;
-
     for (bufferPointer = buffer; bufferPointer < buffer + length;) {
       struct inotify_event* event = (struct inotify_event*)bufferPointer;
 
@@ -69,8 +71,7 @@ void DirectoryWatcher::start() {
 
       if (isValidEvent) {
         if (event->mask & IN_MOVED_FROM) {
-          std::cout << "file '" << event->name
-                    << "' was removed from the directory" << std::endl;
+          this->synchroService->remove(event->name);
         } else if (event->mask & IN_MOVED_TO) {
           std::cout << "file '" << event->name << "' was moved to the directory"
                     << std::endl;

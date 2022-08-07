@@ -5,13 +5,16 @@
 
 class SynchronizationService {
  private:
-  std::string folder;
   std::string username;
+  std::string folder = "./sync_dir";
 
  public:
-  SynchronizationService(std::string username, std::string folder);
+  SynchronizationService(std::string username);
 
-  void remove(std::string file);
+  void prepareSyncDir();
+
+  void remove(const char* file);
+  void removeFromFolderAndSignal(std::string file);
 };
 
 #endif
